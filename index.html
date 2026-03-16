@@ -5,295 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9º COL - Congresso Odontológico Londrinense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            /* Usamos o azul exato do fundo da sua logo */
             --azul-escuro: #0a182f; 
             --azul-claro: #112240;
-            --dourado: #c5a059; /* Dourado da logo */
+            --dourado: #c5a059;
             --dourado-brilho: #e2c285;
             --branco: #e6f1ff;
         }
 
-        /* --- CONFIGURAÇÃO GLOBAL DO FUNDO (CORRIGIDO PARA MOBILE) --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            /* Cor de fundo sólida para toda a página */
             background-color: var(--azul-escuro); 
             color: var(--branco);
-            line-height: 1.6;
-            
-            /* Usamos 'position: relative' para que o pseudo-elemento ':before' funcione */
-            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Impede scroll já que é uma página de espera */
         }
 
-        /* Criamos uma camada separada apenas para a imagem de fundo */
         body:before {
             content: "";
-            position: fixed; /* Fica parada na tela */
+            position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            
-            /* --- CONFIGURAÇÃO DA IMAGEM DE FUNDO (MARCA D'ÁGUA) --- */
-            /* Certifique-se de salvar a imagem como 'fundo-logo.png' na mesma pasta */
             background-image: url('fundo-logo.png'); 
-            background-position: center; /* Centralizada */
+            background-position: center;
             background-repeat: no-repeat;
-            background-size: 70%; /* Tamanho inicial (no desktop) */
-            
-            /* --- TRUQUE PARA TENTAR USAR A IMAGEM COMO MARCA D'ÁGUA --- */
-            /* Esta regra tenta manter o desenho dourado e esconder o fundo azul da imagem.
-               Pode não funcionar perfeitamente dependendo da imagem.
-               O ideal seria um .png transparente. */
-            mask-image: radial-gradient(black, transparent 100%);
-            -webkit-mask-image: radial-gradient(black, transparent 100%);
-            mask-composite: exclude;
-            
-            /* Controla a transparência da marca d'água (0.0 a 1.0) */
+            background-size: 60%;
             opacity: 0.15; 
-            z-index: -1; /* Fica atrás de todo o conteúdo */
-        }
-        /* Fonte para títulos (mais elegante/clássica) */
-        .fonte-titulo {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
+            z-index: -1;
         }
 
-        /* Fonte para textos de destaque (mais moderna/limpa) */
-        .fonte-destaque {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        /* Camada opcional para dar um efeito de blur no fundo se precisar */
-        .fundo-opaco {
-            display: none; /* Desativado, pois usamos o :before acima */
-        }
-
-        /* Header */
-        header {
-            background-color: rgba(10, 25, 47, 0.98);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 90%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--dourado);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo { 
-            font-size: 1.5rem; 
-            color: var(--dourado); 
-font-family: 'Pinyon Script', cursive;
-            font-weight: 400;
-            text-transform: none; }
-
-        nav a {
-            color: var(--branco);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        nav a:hover { color: var(--dourado); }
-
-        /* Hero Section */
+        /* Hero centralizado ocupando o espaço restante */
         .hero {
-            height: 90vh;
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
-            margin-top: 60px;
+            padding: 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; color: var(--dourado); margin-bottom: 10px; text-transform: uppercase; }
-        .hero p { font-size: 1.3rem; max-width: 600px; color: var(--branco); font-weight: 300; }
-
-        .btn-inscricao {
-            background: linear-gradient(45deg, var(--dourado), var(--dourado-brilho));
-            color: var(--azul-escuro);
-            padding: 15px 45px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: 40px;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+        .hero h1 { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2.5rem; 
+            color: var(--dourado); 
+            margin-bottom: 20px; 
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .btn-inscricao:hover { transform: translateY(-3px); filter: brightness(1.1); }
-
-        /* Sections */
-        section { padding: 100px 10%; position: relative; z-index: 1; }
-        h2 { color: var(--dourado); border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 15px; text-transform: uppercase; font-size: 2rem; }
-
-        /* Info Cards */
-        .info-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        /* Estilo da caixa "Em Breve" */
+        .caixa-breve {
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--dourado);
+            padding: 10px 30px;
+            border-radius: 4px;
+            color: var(--dourado-brilho);
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.5rem;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
         }
 
-        .card {
-            background: rgba(17, 34, 64, 0.9);
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid var(--dourado);
-            transition: 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); background: rgba(17, 34, 64, 1); }
-
-        .card i { font-size: 2rem; color: var(--dourado); margin-bottom: 15px; }
-        .card h3 { margin-top: 0; color: var(--branco); }
-
-        /* Tabela de Preços */
-        .table-wrapper { overflow-x: auto; margin-top: 40px; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(17, 34, 64, 0.95);
-            border-radius: 8px;
-        }
-
-        th, td {
-            padding: 18px;
-            text-align: left;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.1);
-        }
-
-        th { color: var(--dourado); text-transform: uppercase; font-size: 0.9rem; }
-        tr:last-child td { border-bottom: none; }
-
+        /* Rodapé fixado embaixo */
         footer {
             text-align: center;
-            padding: 50px 10%;
-            background: #020c1b;
+            padding: 20px 5%;
+            background: rgba(2, 12, 27, 0.9);
             font-size: 0.8rem;
             color: #8892b0;
-            position: relative; z-index: 1;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* Mobile */
+        footer p { margin: 5px 0; }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            nav { display: none; }
-            section { padding: 80px 5%; }
-            
-            /* No celular, aumentamos o tamanho da marca d'água para ocupar mais tela */
-            body:before { background-size: 150%; opacity: 0.1; } 
+            .hero h1 { font-size: 1.8rem; }
+            .caixa-breve { font-size: 2rem; }
+            body:before { background-size: 90%; }
         }
     </style>
 </head>
 <body>
 
-
     <div class="hero">
-        <h1>9º CONGRESSO ODONTOLÓGICO LONDRINENSE</h1>
-        <p class="btn-inscricao">Em Breve</p>
-
+        <h1>9º Congresso Odontológico Londrinense</h1>
+        <div class="caixa-breve">Em Breve...</div>
     </div>
-<!--
-    <section id="sobre">
-        <h2>O Evento</h2>
-        <div class="info-container">
-            <div class="card">
-                <i class="fa fa-calendar-alt"></i>
-                <h3>Data</h3>
-                <p>1 a 3 de Outubro de 2026<br></p>
-            </div>
-            <div class="card">
-                <i class="fa fa-map-marker-alt"></i>
-                <h3>Local</h3>
-                <p>Centro de Eventos - Aurora Shopping<br>Londrina - PR</p>
-            </div>
-            <div class="card">
-                <i class="fa fa-certificate"></i>
-                <h3>Certificação</h3>
-                <p>Carga horária total de 40 horas.</p>
-            </div>
-        </div>
-    </section>
 
-
-    <section id="palestrantes">
-        <h2>Palestrantes Confirmados</h2>
-        <div class="info-container">
-            <div class="card" style="text-align: center;">
-                <div style="width: 120px; height: 120px; background: #333; border-radius: 50%; margin: 0 auto 20px; border: 3px solid var(--dourado);"></div>
-                <h4>Dr. Nome do Palestrante</h4>
-                <p style="font-size: 0.8rem; color: var(--dourado); text-transform: uppercase;">Especialidade / Título</p>
-                <p style="font-size: 0.9rem; color: #8892b0;">Breve currículo ou tema da palestra.</p>
-            </div>
-            </div>
-    </section>
-
-    <section id="precos">
-        <h2>Investimento</h2>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Categoria</th>
-                        <th>Até 31/07 (Lote 1)</th>
-                        <th>Após 31/07</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Estudantes de Graduação</td>
-                        <td>R$ 150,00</td>
-                        <td>R$ 200,00</td>
-                    </tr>
-                    <tr>
-                        <td>Pós-Graduandos e Residentes</td>
-                        <td>R$ 220,00</td>
-                        <td>R$ 280,00</td>
-                    </tr>
-                    <tr>
-                        <td>Profissionais Cirurgiões-Dentistas</td>
-                        <td>R$ 350,00</td>
-                        <td>R$ 450,00</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div style="text-align: center; margin-top: 50px;">
-            <p style="color: #8892b0; margin-bottom: 10px;">Vagas limitadas.</p>
-            <a href="LINK_DO_SEU_FORMULARIO_AQUI" class="btn-inscricao">GARANTIR MINHA VAGA</a>
-        </div>
-    </section>
-
-    <section id="contato">
-        <h2>Localização</h2>
-        <div class="card">
-            <p><strong>Universidade Estadual de Londrina (UEL) - Campus Universitário</strong></p>
-            <p>Rodovia Celso Garcia Cid, km 380 - Londrina, PR</p>
-            <p style="color:#8892b0;">Em breve, mapa detalhado do local.</p>
-        </div>
-    </section>
--->
     <footer>
-        <p>9º COL - Congresso Odontológico Londrinense</p>
+        <p><strong>9º COL - Congresso Odontológico Londrinense</strong></p>
         <p>Clínica Odontológica Universitária - Universidade Estadual de Londrina (UEL)</p>
-        <p style="margin-top:20px; font-size:0.7rem;">© 2026. Todos os direitos reservados.</p>
-        <p style="margin-top:20px; font-size:0.7rem;">Desenvolvido por - Miguel Luz</p>
+        <p style="font-size:0.7rem; opacity: 0.7;">© 2026. Todos os direitos reservados. | Desenvolvido por Miguel Luz</p>
     </footer>
 
 </body>

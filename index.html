@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9º COL - Congresso Odontológico Londrinense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Usamos o azul exato do fundo da sua logo */
@@ -54,7 +55,18 @@
             opacity: 0.15; 
             z-index: -1; /* Fica atrás de todo o conteúdo */
         }
+        /* Fonte para títulos (mais elegante/clássica) */
+        .fonte-titulo {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
 
+        /* Fonte para textos de destaque (mais moderna/limpa) */
+        .fonte-destaque {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
         /* Camada opcional para dar um efeito de blur no fundo se precisar */
         .fundo-opaco {
             display: none; /* Desativado, pois usamos o :before acima */
@@ -75,7 +87,12 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .logo { font-weight: bold; font-size: 1.5rem; color: var(--dourado); text-transform: uppercase; }
+        .logo { 
+            font-size: 1.5rem; 
+            color: var(--dourado); 
+font-family: 'Pinyon Script', cursive;
+            font-weight: 400;
+            text-transform: none; }
 
         nav a {
             color: var(--branco);
@@ -188,32 +205,26 @@
 
     <header>
         <div class="logo">9º COL</div>
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#palestrantes">Palestrantes</a>
-            <a href="#precos">Inscrição</a>
-            <a href="#contato">Local</a>
-        </nav>
     </header>
 
     <div class="hero">
         <h1>9º CONGRESSO ODONTOLÓGICO LONDRINENSE</h1>
-        <p>Inovação, Ciência e Excelência na Odontologia. O maior encontro acadêmico da região na Universidade Estadual de Londrina.</p>
-        <a href="#precos" class="btn-inscricao">Inscreva-se Agora</a>
-    </div>
+        <p class="btn-inscricao">Em Breve</p>
 
+    </div>
+<!--
     <section id="sobre">
         <h2>O Evento</h2>
         <div class="info-container">
             <div class="card">
                 <i class="fa fa-calendar-alt"></i>
                 <h3>Data</h3>
-                <p>15 a 18 de Outubro de 2026<br><span style="font-size:0.8rem; color:#8892b0;">(Datas sugeridas)</span></p>
+                <p>1 a 3 de Outubro de 2026<br></p>
             </div>
             <div class="card">
                 <i class="fa fa-map-marker-alt"></i>
                 <h3>Local</h3>
-                <p>Campus da UEL<br>Londrina - PR</p>
+                <p>Centro de Eventos - Aurora Shopping<br>Londrina - PR</p>
             </div>
             <div class="card">
                 <i class="fa fa-certificate"></i>
@@ -222,6 +233,7 @@
             </div>
         </div>
     </section>
+
 
     <section id="palestrantes">
         <h2>Palestrantes Confirmados</h2>
@@ -279,11 +291,12 @@
             <p style="color:#8892b0;">Em breve, mapa detalhado do local.</p>
         </div>
     </section>
-
+-->
     <footer>
         <p>9º COL - Congresso Odontológico Londrinense</p>
-        <p>Departamento de Odontologia - Universidade Estadual de Londrina (UEL)</p>
+        <p>Clínica Odontológica Universitária - Universidade Estadual de Londrina (UEL)</p>
         <p style="margin-top:20px; font-size:0.7rem;">© 2026. Todos os direitos reservados.</p>
+        <p style="margin-top:20px; font-size:0.7rem;">Desenvolvido por - Miguel Luz</p>
     </footer>
 
 </body>

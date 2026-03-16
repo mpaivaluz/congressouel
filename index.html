@@ -8,90 +8,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&family=Pinyon+Script&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --azul-escuro: #0a182f; 
-            --azul-claro: #112240;
-            --dourado: #c5a059;
-            --dourado-brilho: #e2c285;
-            --branco: #e6f1ff;
-        }
+    :root {
+        --azul-escuro: #0a182f; 
+        --azul-claro: #112240;
+        --dourado: #c5a059;
+        --dourado-brilho: #e2c285;
+        --branco: #e6f1ff;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--azul-escuro); 
-            color: var(--branco);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden; /* Impede scroll já que é uma página de espera */
-        }
+    html, body {
+        height: 100%; /* Garante que o fundo cubra tudo */
+        margin: 0;
+        padding: 0;
+    }
 
-        body:before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: url('fundo-logo.png'); 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 60%;
-            opacity: 0.15; 
-            z-index: -1;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--azul-escuro); 
+        color: var(--branco);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Altura mínima da tela */
+        position: relative;
+    }
 
-        /* Hero centralizado ocupando o espaço restante */
-        .hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+    /* Marca d'água fixa */
+    body:before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-image: url('fundo-logo.png'); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60%;
+        opacity: 0.15; 
+        z-index: -1;
+    }
+    .social-links {
+    margin-bottom: 15px;
+}
 
-        .hero h1 { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 2.5rem; 
-            color: var(--dourado); 
-            margin-bottom: 20px; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+.social-links a {
+    color: var(--dourado);
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        /* Estilo da caixa "Em Breve" */
-        .caixa-breve {
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px solid var(--dourado);
-            padding: 10px 30px;
-            border-radius: 4px;
-            color: var(--dourado-brilho);
-            font-family: 'Pinyon Script', cursive;
-            font-size: 2.5rem;
-            box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
-        }
+.social-links a:hover {
+    color: var(--dourado-brilho);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--dourado));
+}
 
-        /* Rodapé fixado embaixo */
-        footer {
-            text-align: center;
-            padding: 20px 5%;
-            background: rgba(2, 12, 27, 0.9);
-            font-size: 0.8rem;
-            color: #8892b0;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            width: 100%;
-            box-sizing: border-box;
-        }
+    /* O Hero agora cresce para empurrar o rodapé */
+    .hero {
+        flex: 1; /* Ocupa todo o espaço disponível entre o topo e o rodapé */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-        footer p { margin: 5px 0; }
+    .hero h1 { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.5rem; 
+        color: var(--dourado); 
+        margin-bottom: 20px; 
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .caixa-breve { font-size: 2rem; }
-            body:before { background-size: 90%; }
-        }
-    </style>
+    .caixa-breve {
+        background: rgba(197, 160, 89, 0.1);
+        border: 1px solid var(--dourado);
+        padding: 10px 30px;
+        border-radius: 4px;
+        color: var(--dourado-brilho);
+        font-family: 'Pinyon Script', cursive;
+        font-size: 2.5rem;
+        box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
+    }
+
+    /* Rodapé ajustado para não cortar */
+    footer {
+        text-align: center;
+        padding: 20px 5%;
+        background: rgba(2, 12, 27, 0.95); /* Um pouco mais escuro para destaque */
+        font-size: 0.8rem;
+        color: #8892b0;
+        border-top: 1px solid rgba(197, 160, 89, 0.2);
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: auto; /* Garante que ele fique no fim */
+    }
+
+    footer p { margin: 5px 0; line-height: 1.4; }
+
+    /* Ajustes específicos para celular */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 1.8rem; margin-top: 20px; }
+        .caixa-breve { font-size: 2rem; }
+        body:before { background-size: 85%; }
+        footer { padding: 30px 10%; } /* Mais espaço para o toque e leitura */
+    }
+</style>
 </head>
 <body>
 
@@ -100,10 +124,20 @@
         <div class="caixa-breve">Em Breve...</div>
     </div>
 
-    <footer>
+<footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/9coluel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        
         <p><strong>9º COL - Congresso Odontológico Londrinense</strong></p>
         <p>Clínica Odontológica Universitária - Universidade Estadual de Londrina (UEL)</p>
-        <p style="font-size:0.7rem; opacity: 0.7;">© 2026. Todos os direitos reservados. | Desenvolvido por Miguel Luz</p>
+        
+        <div style="margin-top:20px; font-size:0.7rem; opacity: 0.7;">
+            <p>© 2026. Todos os direitos reservados.</p>
+            <p>Desenvolvido por - Miguel Luz</p>
+        </div>
     </footer>
 
 </body>

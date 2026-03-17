@@ -5,125 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>9º COL - Congresso Odontológico Londrinense</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     
     <style>
     :root {
         --azul-escuro: #0a182f; 
-        --azul-claro: #112240;
         --dourado: #c5a059;
-        --dourado-brilho: #e2c285;
         --branco: #e6f1ff;
     }
 
+    /* Trava a tela e define a base */
     html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-        overflow: hidden; /* Trava o scroll para caber em uma tela só */
+        overflow: hidden; 
+        background-color: var(--azul-escuro);
     }
 
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--azul-escuro); 
         color: var(--branco);
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        width: 100%;
         position: relative;
     }
 
-    body:before {
-        content: "";
+    /* CAMADA DA FOTO DE FUNDO (CORRIGIDA) */
+    .bg-foto {
         position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-image: url('fundo-logo.png'); 
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('fundo-logo.png'); /* Verifique se o nome do arquivo está correto */
         background-position: center;
         background-repeat: no-repeat;
         background-size: 60%;
-        opacity: 0.15; 
-        z-index: -1;
+        opacity: 0.15;
+        z-index: 0; /* Fica na base */
+        pointer-events: none;
     }
 
-    .social-links {
-        margin-bottom: 10px; /* Reduzido */
-    }
-
-    .social-links a {
-        color: var(--dourado);
-        font-size: 1.8rem;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .social-links a:hover {
-        color: var(--dourado-brilho);
-        transform: scale(1.1);
-        filter: drop-shadow(0 0 8px var(--dourado));
-    }
-
+    /* Conteúdo principal */
     .hero {
-        flex: 1;
+        position: relative;
+        z-index: 1; /* Fica acima da foto */
+        height: 70vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 20px; /* Reduzido para ganhar espaço */
+        padding: 0 20px;
     }
 
     .hero h1 { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 2.5rem; 
+        font-size: 2rem; 
         color: var(--dourado); 
-        margin-bottom: 15px; 
+        margin-bottom: 10px; 
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
 
     .caixa-breve {
         background: rgba(197, 160, 89, 0.1);
         border: 1px solid var(--dourado);
-        padding: 10px 30px;
+        padding: 8px 25px;
         border-radius: 4px;
-        color: var(--dourado-brilho);
+        color: #e2c285;
         font-family: 'Pinyon Script', cursive;
-        font-size: 2.5rem;
-        box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
+        font-size: 2.2rem;
     }
 
+    /* RODAPÉ FIXO NA BASE */
     footer {
-        text-align: center;
-        padding: 15px 5%; /* Reduzido para não cortar */
-        background: rgba(2, 12, 27, 0.95);
-        border-top: 1px solid rgba(197, 160, 89, 0.2);
+        position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100%;
-        box-sizing: border-box;
+        text-align: center;
+        padding: 15px 0 25px 0; /* Espaço extra no fundo para mobile */
+        background: rgba(2, 12, 27, 0.9);
+        border-top: 1px solid rgba(197, 160, 89, 0.2);
+        z-index: 2; /* Fica acima de tudo */
     }
 
-    /* REMOVIDO NEGRITO E AJUSTADO TAMANHO */
+    .social-links { margin-bottom: 5px; }
+    .social-links a { color: var(--dourado); font-size: 1.5rem; text-decoration: none; }
+
     footer p { 
         margin: 2px 0; 
-        line-height: 1.3; 
-        font-weight: normal !important; 
-        font-size: 0.75rem;
+        font-size: 0.7rem; 
+        font-weight: 400 !important; 
+        color: #8892b0;
+        line-height: 1.2;
     }
 
-    footer p strong {
-        font-weight: normal; /* Remove o negrito do 9º COL */
+    .dev-info {
+        margin-top: 5px;
+        font-size: 0.6rem !important;
+        opacity: 0.6;
     }
 
+    /* Ajustes Mobile */
     @media (max-width: 768px) {
-        .hero h1 { font-size: 1.6rem; margin-bottom: 10px; }
-        .caixa-breve { font-size: 1.8rem; padding: 8px 20px; }
-        body:before { background-size: 85%; }
-        footer { padding: 10px 5%; } 
-        footer p { font-size: 0.65rem; } /* Diminui apenas no celular para caber */
+        .bg-foto { background-size: 85%; }
+        .hero h1 { font-size: 1.5rem; }
+        .caixa-breve { font-size: 1.8rem; }
     }
 </style>
 </head>
 <body>
+
+    <div class="bg-foto"></div>
 
     <div class="hero">
         <h1>9º Congresso Odontológico Londrinense</h1>
@@ -132,17 +128,18 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://www.instagram.com/9coluel" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/9coluel" target="_blank">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
         
-        <p><strong>9º COL - Congresso Odontológico Londrinense</strong></p>
+        <p>9º COL - Congresso Odontológico Londrinense</p>
         <p>Clínica Odontológica Universitária - UEL</p>
         
-        <div style="margin-top:10px; font-size:0.6rem; opacity: 0.7;">
-            <p>© 2026. Todos os direitos reservados | Desenvolvido por - Miguel Luz</p>
-        </div>
+        <p class="dev-info">
+            © 2026. Todos os direitos reservados<br>
+            Desenvolvido por Miguel Luz
+        </p>
     </footer>
 
 </body>

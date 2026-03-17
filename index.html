@@ -4,131 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>9º COL - Congresso Odontológico Londrinense</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     
-    <style>
-    :root {
-        --azul-escuro: #0a182f; 
-        --dourado: #c5a059;
-        --branco: #e6f1ff;
-    }
-
-    /* Trava a tela e define a base */
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden; 
-        background-color: var(--azul-escuro);
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--branco);
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        position: relative;
-    }
-
-    /* CAMADA DA FOTO DE FUNDO (CORRIGIDA) */
-    .bg-foto {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('fundo-logo.png'); /* Verifique se o nome do arquivo está correto */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 60%;
-        opacity: 0.15;
-        z-index: 0; /* Fica na base */
-        pointer-events: none;
-    }
-
-    /* Conteúdo principal */
-    .hero {
-        position: relative;
-        z-index: 1; /* Fica acima da foto */
-        height: 70vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .hero h1 { 
-        font-size: 2rem; 
-        color: var(--dourado); 
-        margin-bottom: 10px; 
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .caixa-breve {
-        background: rgba(197, 160, 89, 0.1);
-        border: 1px solid var(--dourado);
-        padding: 8px 25px;
-        border-radius: 4px;
-        color: #e2c285;
-        font-family: 'Pinyon Script', cursive;
-        font-size: 2.2rem;
-    }
-
-    /* RODAPÉ FIXO NA BASE */
-    footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 15px 0 25px 0; /* Espaço extra no fundo para mobile */
-        background: rgba(2, 12, 27, 0.9);
-        border-top: 1px solid rgba(197, 160, 89, 0.2);
-        z-index: 2; /* Fica acima de tudo */
-    }
-
-    .social-links { margin-bottom: 5px; }
-    .social-links a { color: var(--dourado); font-size: 1.5rem; text-decoration: none; }
-
-    footer p { 
-        margin: 2px 0; 
-        font-size: 0.7rem; 
-        font-weight: 400 !important; 
-        color: #8892b0;
-        line-height: 1.2;
-    }
-
-    .dev-info {
-        margin-top: 5px;
-        font-size: 0.6rem !important;
-        opacity: 0.6;
-    }
-
-    /* Ajustes Mobile */
-    @media (max-width: 768px) {
-        .bg-foto { background-size: 85%; }
-        .hero h1 { font-size: 1.5rem; }
-        .caixa-breve { font-size: 1.8rem; }
-    }
-</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div class="bg-foto"></div>
 
-    <div class="hero">
+    <main class="hero">
         <h1>9º Congresso Odontológico Londrinense</h1>
         <div class="caixa-breve">Em Breve...</div>
-    </div>
+        
+                <div class="container-info">
+            <div class="info-item">
+                <i class="far fa-calendar-check"></i>
+                <span>1 a 3 de Outubro de 2026</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Aurora Shopping - Londrina/PR</span>
+            </div>
+            
+        <div class="mapa-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Aurora%20Shopping%20Londrina%20Av.%20Ayrton%20Senna%20da%20Silva,%20400&t=&z=15&ie=UTF8&iwloc=B&output=embed" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+        </div>
+    </main>
 
     <footer>
         <div class="social-links">
-            <a href="https://www.instagram.com/9coluel" target="_blank">
+            <a href="https://www.instagram.com/9coluel" target="_blank" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>

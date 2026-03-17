@@ -1,0 +1,162 @@
+:root {
+    --azul-escuro: #0a182f; 
+    --dourado: #c5a059;
+    --dourado-brilho: #e2c285;
+    --branco: #e6f1ff;
+}
+
+/* Estrutura para travar a tela (One-Screen) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    background-color: var(--azul-escuro);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+/* FOTO DE FUNDO CENTRALIZADA */
+.bg-foto {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url('../fundo-logo.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 55%;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* CONTEÚDO CENTRAL */
+.hero {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h1 { 
+    font-size: 1.8rem; 
+    color: var(--dourado); 
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+/* CAIXINHA DE INFORMAÇÕES (DATA/LOCAL/MAPA) */
+.container-info {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    
+    /* Aumente este valor para dar mais distância do "Em Breve" */
+    margin-bottom: 40px; 
+    
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.info-item {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-item i { 
+    color: var(--dourado); 
+    margin-right: 10px; 
+    font-size: 1.1rem;
+}
+
+/* MAPA DENTRO DA CAIXINHA */
+.mapa-container {
+    margin-top: 20px; /* Aumentei de 10px para 20px */
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.2);
+}
+
+/* TEXTO EM BREVE */
+.caixa-breve {
+    background: rgba(197, 160, 89, 0.1);
+    border: 1px solid var(--dourado);
+    padding: 8px 30px;
+    border-radius: 4px;
+    color: var(--dourado-brilho);
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.2rem;
+
+    /* ESTE É O AJUSTE DA SETA */
+    margin-bottom: 30px; 
+    
+    display: inline-block; /* Garante que a margem funcione corretamente */
+}
+
+/* RODAPÉ FIXO NO CHÃO */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0 25px 0; 
+    background: rgba(2, 12, 27, 0.95);
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    z-index: 2;
+}
+
+.social-links { margin-bottom: 5px; }
+.social-links a { color: var(--dourado); font-size: 1.6rem; text-decoration: none; }
+
+footer p { 
+    margin: 2px 0; 
+    font-size: 0.7rem; 
+    color: #8892b0;
+    line-height: 1.2;
+}
+
+.dev-info {
+    margin-top: 5px;
+    font-size: 0.6rem !important;
+    opacity: 0.6;
+}
+
+/* AJUSTES MOBILE */
+@media (max-width: 768px) {
+    .bg-foto { background-size: 85%; }
+    .hero h1 { font-size: 1.4rem; }
+    .container-info { max-width: 320px; padding: 12px; }
+    .mapa-container { height: 120px; }
+    .caixa-breve { font-size: 1.8rem; }
+}

@@ -12,9 +12,8 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
+    min-height: 100svh; /* Usa a altura inteira da tela */
     background-color: var(--azul-escuro);
-    /* Removido overflow: hidden para permitir rolagem se o conteúdo for grande em telas pequenas */
     overflow-x: hidden; 
 }
 
@@ -22,47 +21,46 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: var(--branco);
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Permite que o rodapé acompanhe o conteúdo */
     position: relative;
 }
 
-/* FUNDO (LOGO) - OTIMIZADO */
+/* FUNDO (LOGO) */
 .bg-foto {
     position: fixed;
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background-image: url('../fundo-logo.png'); 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 40%; /* Ajustado para não ficar gigante no desktop */
+    background-size: 40%; 
     opacity: 0.12;
     z-index: 0;
     pointer-events: none;
-    transition: background-size 0.3s ease;
 }
 
-/* CONTEÚDO PRINCIPAL */
+/* CONTEÚDO PRINCIPAL - CENTRALIZAÇÃO TOTAL */
 .hero {
     position: relative;
     z-index: 1;
-    flex: 1;
+    flex: 1; /* Ocupa o espaço entre o topo e o rodapé */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza na Vertical */
+    align-items: center;     /* Centraliza na Horizontal */
     text-align: center;
-    padding: 40px 20px 140px 20px; /* Padding inferior maior para não cobrir com o footer */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Margens limpas e controladas */
     box-sizing: border-box;
-    min-height: 100svh; /* Usa a altura dinâmica do navegador no celular */
 }
 
 .hero h1 { 
     font-family: 'Times New Roman', serif; 
     font-size: 2.2rem; 
     color: var(--dourado); 
-    margin: 0 0 25px 0;
+    margin: 0 0 20px 0;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.2;
@@ -75,8 +73,8 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(197, 160, 89, 0.3);
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px; 
+    padding: 15px 20px;
+    margin-bottom: 25px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -84,63 +82,61 @@ body {
 
 .info-item {
     font-size: 0.95rem;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap; /* Permite quebrar linha se o texto for longo */
+    flex-wrap: wrap;
 }
 
-.info-item i { 
-    color: var(--dourado); 
-    font-size: 1.1rem;
-}
+.info-item i { color: var(--dourado); font-size: 1.1rem; }
 
 .mapa-container {
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
-    height: 150px;
+    height: 120px;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid rgba(197, 160, 89, 0.2);
 }
 
 .mapa-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    filter: grayscale(0.5) contrast(1.1) invert(0.9) hue-rotate(180deg); /* Efeito dark mode no mapa */
+    width: 100%; height: 100%; border: 0;
+    filter: grayscale(0.5) contrast(1.1) invert(0.9) hue-rotate(180deg);
 }
 
-/* CICLO DE PALESTRAS */
+/* CICLO DE PALESTRAS - ALINHAMENTO CORRIGIDO */
 .titulo-palestras {
     font-family: 'Times New Roman', serif; 
     font-size: 1.5rem;
     color: var(--dourado);
-    margin: 20px 0 10px 0;
+    margin: 10px 0;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .ciclo-palestras {
     width: 100%;
-    max-width: 100vw;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; 
 }
 
 .palestras-container {
     display: flex;
-    gap: 25px;
-    padding: 20px;
-    justify-content: center;
-    align-items: flex-start;
+    gap: 20px;
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
 .palestra-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 100%; /* Força a caixa a ocupar a largura e centralizar */
 }
 
 .numero-palestra {
@@ -150,9 +146,16 @@ body {
     margin-bottom: 5px;
 }
 
+.link-imagem {
+    display: flex; /* Trava o link no meio */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
 .imagem-palestra {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--dourado);
@@ -169,85 +172,57 @@ body {
     font-size: 0.85rem;
     color: var(--branco);
     opacity: 0.8;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* RODAPÉ */
+/* RODAPÉ NO FLUXO NORMAL (Sem buracos enormes) */
 footer {
     width: 100%;
     text-align: center;
-    padding: 20px 0; 
+    padding: 15px 0; 
     background: var(--bg-footer);
     border-top: 1px solid rgba(197, 160, 89, 0.2);
     z-index: 2;
-    /* Se quiser ele fixo, mantenha absolute, se quiser que apareça ao final do scroll, use relative */
-    position: relative; 
+    /* Removi position: absolute, agora ele se ajusta naturalmente */
 }
 
-.social-links { margin-bottom: 8px; }
-.social-links a { 
-    color: var(--dourado); 
-    font-size: 1.8rem; 
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.social-links a:hover { color: var(--dourado-brilho); }
+.social-links { margin-bottom: 5px; }
+.social-links a { color: var(--dourado); font-size: 1.5rem; text-decoration: none; }
+footer p { margin: 3px 0; font-size: 0.75rem; color: #8892b0; }
+.dev-info { margin-top: 8px; font-size: 0.65rem !important; opacity: 0.5; }
 
-footer p { 
-    margin: 4px 0; 
-    font-size: 0.75rem; 
-    color: #8892b0;
-}
-
-.dev-info {
-    margin-top: 10px;
-    font-size: 0.65rem !important;
-    opacity: 0.5;
-}
-
-/* --- AJUSTES PARA CELULAR (RESPONSIVIDADE) --- */
+/* --- AJUSTES PARA CELULAR --- */
 @media (max-width: 768px) {
-    .bg-foto { 
-        background-size: 80%; /* Aumenta o logo no fundo para aparecer melhor no celular */
-    }
+    .bg-foto { background-size: 80%; }
 
     .hero {
-        padding-top: 60px;
-        justify-content: flex-start; /* Alinha no topo para não sumir conteúdo embaixo */
+        padding: 30px 15px; /* Reduzi ainda mais o espaço no celular */
     }
 
-    .hero h1 { 
-        font-size: 1.5rem; 
-    }
+    .hero h1 { font-size: 1.35rem; margin-bottom: 15px; }
 
     .container-info { 
-        max-width: 90%; 
-        padding: 15px; 
+        max-width: 100%; 
+        padding: 10px 15px; 
+        margin-bottom: 15px;
     }
+
+    .mapa-container { height: 80px; }
+
+    .info-item { font-size: 0.8rem; margin-bottom: 5px; }
+    .titulo-palestras { font-size: 1.2rem; margin: 5px 0; }
+    .numero-palestra { font-size: 1.1rem; }
 
     .imagem-palestra {
-        width: 180px; /* Diminui a foto da palestra para caber melhor */
-        height: 180px;
+        width: 150px; /* Reduzi levemente a foto */
+        height: 150px;
     }
 
-    .info-item {
-        font-size: 0.85rem;
-    }
-
-    /* Permite scroll lateral se houver mais de uma palestra */
-    .ciclo-palestras {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .palestras-container {
-        justify-content: flex-start;
-        padding-left: 20px;
-    }
+    .texto-clique { margin-top: 10px; font-size: 0.75rem; }
 }
 
-/* Ajuste extra para telas muito pequenas (iPhone SE, etc) */
-@media (max-width: 370px) {
-    .hero h1 { font-size: 1.3rem; }
-    .imagem-palestra { width: 150px; height: 150px; }
+@media (max-width: 380px) {
+    .hero h1 { font-size: 1.15rem; }
+    .imagem-palestra { width: 130px; height: 130px; }
+    .mapa-container { display: none; } 
 }

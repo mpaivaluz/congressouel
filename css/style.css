@@ -163,6 +163,45 @@ body {
     filter: grayscale(0.5); /* Opcional: deixa a imagem levemente cinza para indicar que passou */
 }
 
+.nome-palestra {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: var(--branco);
+    margin: 15px 0 5px 0;
+    font-weight: 500;
+    max-width: 250px;
+    line-height: 1.4;
+}
+
+.btn-certificados {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid var(--dourado);
+    color: var(--dourado);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-certificados:hover {
+    background: var(--dourado);
+    color: var(--azul-escuro);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-certificados i {
+    font-size: 1rem;
+}
+
 .texto-esgotado {
     font-size: 1rem;
     color: #ff4d4d; /* Vermelho suave para indicar esgotado */
@@ -209,6 +248,7 @@ footer p { margin: 3px 0; font-size: 0.75rem; color: #8892b0; }
     .info-item { font-size: 0.8rem; margin-bottom: 5px; }
     .titulo-palestras { font-size: 1.2rem; margin: 5px 0; }
     .numero-palestra { font-size: 1.1rem; }
+    .nome-palestra { font-size: 0.9rem; max-width: 200px; }
 
     .imagem-palestra {
         width: 150px; /* Reduzi levemente a foto */

@@ -116,6 +116,30 @@ body {
     letter-spacing: 1px;
 }
 
+.ciclo-palestras-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    color: var(--dourado);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.nav-arrow:hover {
+    color: var(--dourado-brilho);
+    transform: scale(1.1);
+}
+
 .ciclo-palestras {
     width: 100%;
     display: flex;
@@ -127,8 +151,9 @@ body {
     gap: 20px;
     justify-content: center; 
     align-items: center;
-    flex-wrap: wrap; 
     width: 100%;
+    position: relative;
+    overflow: hidden; /* Para o carrossel se necessário, ou só flex */
 }
 
 .palestra-item {
@@ -136,7 +161,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Força a caixa a ocupar a largura e centralizar */
+    width: 100%; 
 }
 
 .numero-palestra {
@@ -160,7 +185,7 @@ body {
     object-fit: cover;
     border: 3px solid var(--dourado);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    filter: grayscale(0.5); /* Opcional: deixa a imagem levemente cinza para indicar que passou */
+    /* filter: grayscale(0.5); removido pois colocamos inline na primeira palestra */
 }
 
 .nome-palestra {
@@ -200,6 +225,34 @@ body {
 
 .btn-certificados i {
     font-size: 1rem;
+}
+
+.btn-inscricao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: var(--dourado);
+    border: none;
+    color: var(--azul-escuro);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-inscricao:hover {
+    background: var(--dourado-brilho);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-inscricao i {
+    font-size: 1.1rem;
 }
 
 .texto-esgotado {

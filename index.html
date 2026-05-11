@@ -59,22 +59,56 @@
         
         <h2 class="titulo-palestras">Ciclo de palestras:</h2>
         
-        <div class="ciclo-palestras">
-            <div class="palestras-container">
-                <div class="palestra-item">
-                    <span class="numero-palestra">1ª</span>
-                    <img src="Imagem_palestra.png" alt="Palestra 01" class="imagem-palestra">
-                    <h3 class="nome-palestra">"A arte do full face com naturalidade"</h3>
-                    <a href="https://drive.google.com/drive/folders/1PwrpQXdCwADFsc5DolElAM3X_v64nHiw" target="_blank" class="btn-certificados">
-                        <i class="fas fa-certificate"></i> Certificados da Palestra
-                    </a>
+        <div class="ciclo-palestras-wrapper">
+            <button class="nav-arrow prev" onclick="mudarPalestra(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div class="ciclo-palestras">
+                <div class="palestras-container">
+                    
+                    <!-- Palestra 1 -->
+                    <div class="palestra-item" id="palestra-0" style="display: none;">
+                        <span class="numero-palestra">1ª</span>
+                        <img src="Imagem_palestra.png" alt="Palestra 01" class="imagem-palestra" style="filter: grayscale(0.5);">
+                        <h3 class="nome-palestra">"A arte do full face com naturalidade"</h3>
+                        <a href="https://drive.google.com/drive/folders/1PwrpQXdCwADFsc5DolElAM3X_v64nHiw" target="_blank" class="btn-certificados">
+                            <i class="fas fa-certificate"></i> Certificados
+                        </a>
+                    </div>
+
+                    <!-- Palestra 2 (Atual) -->
+                    <div class="palestra-item" id="palestra-1">
+                        <span class="numero-palestra">2ª</span>
+                        <img src="Imagem_palestra2.jpg" alt="Palestra 02" class="imagem-palestra">
+                        <h3 class="nome-palestra"></h3>
+                        <a href="https://docs.google.com/forms/d/18jHW9NTULkclJHWwdDMLVGYfiam6KjvfUZl8eC8ru3I/viewform?hl=pt-br&pli=1&hl=pt-br&pli=1&edit_requested=true" target="_blank" class="btn-inscricao">
+                            <i class="fas fa-edit"></i> Inscreva-se
+                        </a>
+                    </div>
+
                 </div>
-                
-                </div>
+            </div>
+            <button class="nav-arrow next" onclick="mudarPalestra(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-
     </main>
+
+    <!-- Scripts do Carrossel -->
+    <script>
+        let palestraAtual = 1;
+        const totalPalestras = 2;
+
+        function mudarPalestra(direcao) {
+            document.getElementById(`palestra-${palestraAtual}`).style.display = 'none';
+            palestraAtual += direcao;
+            
+            if (palestraAtual < 0) {
+                palestraAtual = totalPalestras - 1;
+            } else if (palestraAtual >= totalPalestras) {
+                palestraAtual = 0;
+            }
+            
+            document.getElementById(`palestra-${palestraAtual}`).style.display = 'flex';
+        }
+    </script>
 
     <footer>
         <div class="social-links">

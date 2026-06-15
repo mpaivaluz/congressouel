@@ -72,7 +72,7 @@
         <h2 class="titulo-palestras">Ciclo de palestras:</h2>
         
         <div class="ciclo-palestras-wrapper">
-            <button class="nav-arrow prev" onclick="mudarPalestra(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="nav-arrow prev" onclick="mudarPalestra(1)"><i class="fas fa-chevron-left"></i></button>
             <div class="ciclo-palestras">
                 <div class="palestras-container">
                     
@@ -86,8 +86,8 @@
                         </a>
                     </div>
 
-                    <!-- Palestra 2 (Atual) -->
-                    <div class="palestra-item" id="palestra-1">
+                    <!-- Palestra 2 -->
+                    <div class="palestra-item" id="palestra-1" style="display: none;">
                         <span class="numero-palestra">2ª</span>
                         <img src="Imagem_palestra2.jpg" alt="Palestra 02" class="imagem-palestra">
                         <h3 class="nome-palestra"></h3>
@@ -96,17 +96,27 @@
                         </a>
                     </div>
 
+                    <!-- Palestra 3 (Atual) -->
+                    <div class="palestra-item" id="palestra-2">
+                        <span class="numero-palestra">3ª</span>
+                        <img src="Imagem_palestra_3.jpg" alt="Palestra 03" class="imagem-palestra">
+                        <h3 class="nome-palestra"></h3>
+                        <a href="https://forms.gle/iSfDMJQWmV7v7M1w8" target="_blank" class="btn-certificados">
+                            <i class="fas fa-edit"></i> Inscrever-se
+                        </a>
+                    </div>
+
                 </div>
             </div>
-            <button class="nav-arrow next" onclick="mudarPalestra(1)"><i class="fas fa-chevron-right"></i></button>
+            <button class="nav-arrow next" onclick="mudarPalestra(-1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
     </main>
 
     <!-- Scripts do Carrossel -->
     <script>
-        let palestraAtual = 1;
-        const totalPalestras = 2;
+        let palestraAtual = 2;
+        const totalPalestras = 3;
 
         function mudarPalestra(direcao) {
             document.getElementById(`palestra-${palestraAtual}`).style.display = 'none';

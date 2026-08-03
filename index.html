@@ -80,7 +80,7 @@
                     <div class="palestra-item" id="palestra-0" style="display: none;">
                         <span class="numero-palestra">1ª</span>
                         <img src="Imagem_palestra.png" alt="Palestra 01" class="imagem-palestra" style="filter: grayscale(0.5);">
-                        <h3 class="nome-palestra">"A arte do full face com naturalidade"</h3>
+                        <!-- <h3 class="nome-palestra">"A arte do full face com naturalidade"</h3> -->
                         <a href="https://drive.google.com/drive/folders/1PwrpQXdCwADFsc5DolElAM3X_v64nHiw" target="_blank" class="btn-certificados">
                             <i class="fas fa-certificate"></i> Certificados
                         </a>
@@ -96,13 +96,23 @@
                         </a>
                     </div>
 
-                    <!-- Palestra 3 (Atual) -->
-                    <div class="palestra-item" id="palestra-2">
+                    <!-- Palestra 3 -->
+                    <div class="palestra-item" id="palestra-2" style="display: none;">
                         <span class="numero-palestra">3ª</span>
                         <img src="Imagem_palestra_3.jpg" alt="Palestra 03" class="imagem-palestra">
                         <h3 class="nome-palestra"></h3>
                         <a href="https://drive.google.com/drive/folders/1ToNSkjNnnLZ-Khg3ll24ek6J4CBiReH7?usp=sharing" target="_blank" class="btn-certificados">
                             <i class="fas fa-certificate"></i> Certificados
+                        </a>
+                    </div>
+
+                    <!-- Palestra 4 (Atual) -->
+                    <div class="palestra-item" id="palestra-3">
+                        <span class="numero-palestra">4ª</span>
+                        <img src="Imagem_palestra_4.jpg" alt="Palestra 04" class="imagem-palestra">
+                        <h3 class="nome-palestra"></h3>
+                        <a href="https://forms.gle/C8FLfxdnLMtZySd67" target="_blank" class="btn-certificados">
+                            <i class="fas fa-edit"></i> Inscrição
                         </a>
                     </div>
 
@@ -115,8 +125,8 @@
 
     <!-- Scripts do Carrossel -->
     <script>
-        let palestraAtual = 2;
-        const totalPalestras = 3;
+        let palestraAtual = 3;
+        const totalPalestras = 4;
 
         function mudarPalestra(direcao) {
             document.getElementById(`palestra-${palestraAtual}`).style.display = 'none';

@@ -280,6 +280,161 @@ footer {
 footer p { margin: 3px 0; font-size: 0.75rem; color: #8892b0; }
 .dev-info { margin-top: 8px; font-size: 0.65rem !important; opacity: 0.5; }
 
+/* TABS PARA GRADE DE PALESTRAS */
+.tabs-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto 40px auto;
+}
+
+.tabs-header {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--dourado);
+    color: var(--dourado);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.tab-btn:hover, .tab-btn.active {
+    background: var(--dourado);
+    color: var(--azul-escuro);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.grade-dias {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dia-section h3 {
+    color: var(--dourado-brilho);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    padding-bottom: 8px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 1px;
+    font-size: 1.4rem;
+}
+
+.banners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.banner-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(197, 160, 89, 0.5);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.banner-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 2px solid var(--dourado);
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.banner-img:hover {
+    transform: scale(1.03);
+    border-color: var(--dourado-brilho);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* LIGHTBOX */
+.lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 24, 47, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    border: 3px solid var(--dourado);
+    animation: zoomIn 0.3s ease;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--dourado);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--dourado);
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lightbox-close:hover {
+    background: var(--dourado);
+    color: var(--azul-escuro);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 /* --- AJUSTES PARA CELULAR --- */
 @media (max-width: 768px) {
     .bg-foto { background-size: 80%; }
@@ -309,6 +464,24 @@ footer p { margin: 3px 0; font-size: 0.75rem; color: #8892b0; }
     }
 
     .texto-esgotado { margin-top: 10px; font-size: 0.8rem; }
+
+    /* Ajustes das abas no mobile */
+    .tabs-header { gap: 8px; }
+    .tab-btn { font-size: 0.8rem; padding: 8px 15px; }
+    .dia-section h3 { font-size: 1.2rem; }
+    .banners-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+        max-width: 320px; /* Reduz o tamanho da grade no celular */
+        margin: 0 auto; /* Centraliza a grade */
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 0.9rem;
+        padding: 6px 15px;
+    }
 }
 
 @media (max-width: 380px) {

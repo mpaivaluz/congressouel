@@ -59,19 +59,16 @@
                 </iframe>
             </div> -->
 
-            <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="botoes-acao">
                 <a href="https://www.even3.com.br/9-congresso-odontologico-londrinense-732675/" target="_blank"
-                    class="btn-inscricao"
-                    style="width: 100%; justify-content: center; box-sizing: border-box; font-size: 0.95rem;">
-                    <i class="fas fa-edit"></i> INSCRIÇÃO E SUBMISSÃO
+                    class="btn-inscricao primary">
+                    <i class="fas fa-edit"></i> INSCRIÇÃO
                 </a>
                 <a href="https://static.even3.com/geral/EDITAL.1009da1c917846e89e11.pdf" target="_blank"
-                    class="btn-inscricao"
-                    style="width: 100%; justify-content: center; box-sizing: border-box; font-size: 0.95rem;">
+                    class="btn-inscricao secondary">
                     <i class="fas fa-file-alt"></i> EDITAL DE SUBMISSÃO
                 </a>
-                <a href="modelos.html" class="btn-inscricao"
-                    style="width: 100%; justify-content: center; box-sizing: border-box; font-size: 0.95rem; margin-top: 15px;">
+                <a href="modelos.html" class="btn-inscricao secondary">
                     <i class="fas fa-chalkboard"></i> MODELOS PARA PAINEL E ORAL
                 </a>
             </div>
@@ -139,9 +136,12 @@
 
         <div class="tabs-container">
             <div class="tabs-header">
-                <button class="tab-btn active" onclick="openTab('tab-principais', this)">Principais</button>
-                <button class="tab-btn" onclick="openTab('tab-secundarias', this)">Secundárias</button>
-                <button class="tab-btn" onclick="openTab('tab-hands-on', this)">Hands On</button>
+                <button class="tab-btn active" onclick="openTab('tab-principais', this)"><i class="fas fa-star"></i>
+                    Principais</button>
+                <button class="tab-btn" onclick="openTab('tab-secundarias', this)"><i class="fas fa-users"></i>
+                    Secundárias</button>
+                <button class="tab-btn" onclick="openTab('tab-hands-on', this)"><i class="fas fa-tools"></i> Hands
+                    On</button>
             </div>
 
             <!-- TAB 1: PRINCIPAIS -->
@@ -251,7 +251,10 @@
         const totalPalestras = 4;
 
         function mudarPalestra(direcao) {
-            document.getElementById(`palestra-${palestraAtual}`).style.display = 'none';
+            const currentEl = document.getElementById(`palestra-${palestraAtual}`);
+            currentEl.style.display = 'none';
+            currentEl.classList.remove('slide-in-right', 'slide-in-left');
+
             palestraAtual += direcao;
 
             if (palestraAtual < 0) {
@@ -260,7 +263,15 @@
                 palestraAtual = 0;
             }
 
-            document.getElementById(`palestra-${palestraAtual}`).style.display = 'flex';
+            const nextEl = document.getElementById(`palestra-${palestraAtual}`);
+
+            if (direcao > 0) {
+                nextEl.classList.add('slide-in-right');
+            } else {
+                nextEl.classList.add('slide-in-left');
+            }
+
+            nextEl.style.display = 'flex';
         }
 
         // Script para as abas da Grade
@@ -282,7 +293,7 @@
 
             document.querySelectorAll('.banner-img').forEach(img => {
                 img.style.cursor = 'pointer';
-                img.addEventListener('click', function() {
+                img.addEventListener('click', function () {
                     lightbox.style.display = 'flex';
                     lightboxImg.src = this.src;
                     document.body.style.overflow = 'hidden'; // Remove rolagem
@@ -319,4 +330,5 @@
     </div>
 
 </body>
+
 </html>

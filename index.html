@@ -142,14 +142,25 @@
                         </a>
                     </div>
 
-                    <!-- Palestra 4 (Atual) -->
-                    <div class="palestra-item" id="palestra-3">
+                    <!-- Palestra 4 -->
+                    <div class="palestra-item" id="palestra-3" style="display: none;">
                         <span class="numero-palestra">4ª</span>
                         <img src="Imagem_palestra_4.jpg" alt="Palestra 04" class="imagem-palestra">
                         <h3 class="nome-palestra"></h3>
                         <a href="https://drive.google.com/drive/folders/1kUg4bgHxomp9b1c14CNDEZusxYs87mvN"
                             target="_blank" class="btn-certificados">
                             <i class="fas fa-certificate"></i> Certificados
+                        </a>
+                    </div>
+
+                    <!-- Palestra 5 (Atual) -->
+                    <div class="palestra-item" id="palestra-4">
+                        <span class="numero-palestra">5ª</span>
+                        <img src="imagem_palestra5.jpg" alt="Palestra 05" class="imagem-palestra">
+                        <h3 class="nome-palestra"></h3>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxAhDPfoGzs6nKINvQdZOgbZ_QlFduE0gVEI5xOomserEEbw/viewform"
+                            target="_blank" class="btn-certificados">
+                            <i class="fas fa-edit"></i> Inscrições
                         </a>
                     </div>
 
@@ -288,8 +299,8 @@
 
     <!-- Scripts do Carrossel -->
     <script>
-        let palestraAtual = 3;
-        const totalPalestras = 4;
+        let palestraAtual = 4;
+        const totalPalestras = 5;
 
         function mudarPalestra(direcao) {
             const currentEl = document.getElementById(`palestra-${palestraAtual}`);

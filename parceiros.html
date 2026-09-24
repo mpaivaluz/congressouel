@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Restaurantes Parceiros - 9º COL</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ESBOÇO - estilos exclusivos desta página */
+        .aviso-esboco {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(197, 160, 89, 0.12);
+            border: 1px dashed var(--dourado);
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-bottom: 30px;
+            font-size: 0.85rem;
+            text-align: center;
+            color: var(--dourado-brilho);
+        }
+
+        .grid-parceiros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card-parceiro {
+            background: rgba(2, 12, 27, 0.6);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 15px;
+            padding: 25px 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card-parceiro:hover {
+            transform: translateY(-5px);
+            border-color: var(--dourado-brilho);
+        }
+
+        .logo-parceiro {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--dourado);
+            background: rgba(197, 160, 89, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dourado);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .logo-parceiro img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nome-parceiro {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--branco);
+            margin: 0 0 10px 0;
+        }
+
+        .beneficio-parceiro {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .obs-parceiro {
+            font-size: 0.8rem;
+            color: #8892b0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-foto"></div>
+
+    <main class="hero">
+        <h1>Restaurantes Parceiros</h1>
+
+        <div class="aviso-esboco">
+            <i class="fas fa-pencil-ruler"></i>
+            ESBOÇO PARA APROVAÇÃO — logos, nomes e benefícios abaixo são exemplos ilustrativos e serão substituídos pelos dados reais de cada parceiro.
+        </div>
+
+        <p style="max-width: 600px; margin-bottom: 30px; font-size: 0.95rem; color: var(--branco);">
+            Apresente sua credencial do 9º COL nos restaurantes parceiros e aproveite benefícios exclusivos durante o congresso.
+        </p>
+
+        <div class="grid-parceiros">
+
+            <!-- Parceiro 1 -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><i class="fas fa-utensils"></i></div>
+                <h3 class="nome-parceiro">Restaurante Exemplo 1</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 10% de desconto</span>
+                <p class="obs-parceiro">Válido no almoço e jantar, mediante apresentação da credencial.</p>
+            </div>
+
+            <!-- Parceiro 2 -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><i class="fas fa-pizza-slice"></i></div>
+                <h3 class="nome-parceiro">Restaurante Exemplo 2</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-tag"></i> Prato executivo mais barato</span>
+                <p class="obs-parceiro">Prato do dia com valor especial para congressistas.</p>
+            </div>
+
+            <!-- Parceiro 3 -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><i class="fas fa-mug-hot"></i></div>
+                <h3 class="nome-parceiro">Restaurante Exemplo 3</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-gift"></i> Sobremesa cortesia</span>
+                <p class="obs-parceiro">Sobremesa gratuita na compra de um prato principal.</p>
+            </div>
+
+            <!-- Parceiro 4 -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><i class="fas fa-fish"></i></div>
+                <h3 class="nome-parceiro">Restaurante Exemplo 4</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 15% de desconto</span>
+                <p class="obs-parceiro">Desconto válido de segunda a sexta-feira.</p>
+            </div>
+
+            <!-- Card modelo para adicionar novo parceiro -->
+            <div class="card-parceiro" style="border-style: dashed; opacity: 0.6;">
+                <div class="logo-parceiro"><i class="fas fa-plus"></i></div>
+                <h3 class="nome-parceiro">Novo parceiro</h3>
+                <span class="beneficio-parceiro" style="background: transparent; border: 1px solid var(--dourado); color: var(--dourado);">Benefício a definir</span>
+                <p class="obs-parceiro">Espaço reservado para futuros parceiros confirmados.</p>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="btn-inscricao" style="max-width: 300px; margin-top: 40px;">
+            <i class="fas fa-arrow-left"></i> VOLTAR
+        </a>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/9coluel" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <p><strong>9º COL</strong> - Congresso Odontológico Londrinense</p>
+        <p>Clínica Odontológica Universitária - UEL</p>
+
+        <p class="dev-info">
+            © 2026. Todos os direitos reservados<br>
+            Desenvolvido por <strong>Miguel Luz</strong>
+        </p>
+    </footer>
+
+</body>
+</html>

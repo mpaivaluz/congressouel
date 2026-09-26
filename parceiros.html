@@ -11,20 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* ESBOÇO - estilos exclusivos desta página */
-        .aviso-esboco {
-            width: 100%;
-            max-width: 700px;
-            background: rgba(197, 160, 89, 0.12);
-            border: 1px dashed var(--dourado);
-            border-radius: 10px;
-            padding: 12px 18px;
-            margin-bottom: 30px;
-            font-size: 0.85rem;
-            text-align: center;
-            color: var(--dourado-brilho);
-        }
-
         .grid-parceiros {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -54,11 +40,11 @@
         }
 
         .logo-parceiro {
-            width: 90px;
-            height: 90px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 3px solid var(--dourado);
-            background: rgba(197, 160, 89, 0.08);
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -71,7 +57,7 @@
         .logo-parceiro img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .nome-parceiro {
@@ -110,62 +96,61 @@
     <main class="hero">
         <h1>Restaurantes Parceiros</h1>
 
-        <div class="aviso-esboco">
-            <i class="fas fa-pencil-ruler"></i>
-            ESBOÇO PARA APROVAÇÃO — logos, nomes e benefícios abaixo são exemplos ilustrativos e serão substituídos pelos dados reais de cada parceiro.
-        </div>
-
         <p style="max-width: 600px; margin-bottom: 30px; font-size: 0.95rem; color: var(--branco);">
-            Apresente sua credencial do 9º COL nos restaurantes parceiros e aproveite benefícios exclusivos durante o congresso.
+            Apresente seu crachá do 9º COL nos restaurantes parceiros e aproveite benefícios exclusivos durante o congresso.
         </p>
 
         <div class="grid-parceiros">
 
-            <!-- Parceiro 1 -->
+            <!-- Arabis -->
             <div class="card-parceiro">
-                <div class="logo-parceiro"><i class="fas fa-utensils"></i></div>
-                <h3 class="nome-parceiro">Restaurante Exemplo 1</h3>
+                <div class="logo-parceiro"><img src="restaurantes/logos/arabis.png" alt="Logo Arabis"></div>
+                <h3 class="nome-parceiro">Arabis</h3>
                 <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 10% de desconto</span>
-                <p class="obs-parceiro">Válido no almoço e jantar, mediante apresentação da credencial.</p>
+                <p class="obs-parceiro">10% de desconto no cardápio (exceto bebidas) mediante apresentação do crachá.</p>
             </div>
 
-            <!-- Parceiro 2 -->
+            <!-- Fornatto Grill -->
             <div class="card-parceiro">
-                <div class="logo-parceiro"><i class="fas fa-pizza-slice"></i></div>
-                <h3 class="nome-parceiro">Restaurante Exemplo 2</h3>
-                <span class="beneficio-parceiro"><i class="fas fa-tag"></i> Prato executivo mais barato</span>
-                <p class="obs-parceiro">Prato do dia com valor especial para congressistas.</p>
+                <div class="logo-parceiro" style="background: #151414;"><img src="restaurantes/logos/fornatto.png" alt="Logo Fornatto Grill"></div>
+                <h3 class="nome-parceiro">Fornatto Grill</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-tag"></i> Até 30% de desconto</span>
+                <p class="obs-parceiro">Cardápio especial com até 30% de desconto mediante apresentação do crachá.</p>
             </div>
 
-            <!-- Parceiro 3 -->
+            <!-- Go Coffe -->
             <div class="card-parceiro">
-                <div class="logo-parceiro"><i class="fas fa-mug-hot"></i></div>
-                <h3 class="nome-parceiro">Restaurante Exemplo 3</h3>
-                <span class="beneficio-parceiro"><i class="fas fa-gift"></i> Sobremesa cortesia</span>
-                <p class="obs-parceiro">Sobremesa gratuita na compra de um prato principal.</p>
+                <div class="logo-parceiro"><img src="restaurantes/logos/gocoffe.png" alt="Logo Go Coffe"></div>
+                <h3 class="nome-parceiro">Go Coffe</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 10% de desconto</span>
+                <p class="obs-parceiro">10% de desconto para consumo no estabelecimento mediante apresentação do crachá.</p>
             </div>
 
-            <!-- Parceiro 4 -->
+            <!-- Mr Cheff -->
             <div class="card-parceiro">
-                <div class="logo-parceiro"><i class="fas fa-fish"></i></div>
-                <h3 class="nome-parceiro">Restaurante Exemplo 4</h3>
-                <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 15% de desconto</span>
-                <p class="obs-parceiro">Desconto válido de segunda a sexta-feira.</p>
+                <div class="logo-parceiro"><img src="restaurantes/logos/mrcheff.png" alt="Logo Mr Cheff"></div>
+                <h3 class="nome-parceiro">Mr Cheff</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-utensils"></i> Cardápio especial</span>
+                <p class="obs-parceiro">Cardápio especial mediante apresentação do crachá.</p>
             </div>
 
-            <!-- Card modelo para adicionar novo parceiro -->
-            <div class="card-parceiro" style="border-style: dashed; opacity: 0.6;">
-                <div class="logo-parceiro"><i class="fas fa-plus"></i></div>
-                <h3 class="nome-parceiro">Novo parceiro</h3>
-                <span class="beneficio-parceiro" style="background: transparent; border: 1px solid var(--dourado); color: var(--dourado);">Benefício a definir</span>
-                <p class="obs-parceiro">Espaço reservado para futuros parceiros confirmados.</p>
+            <!-- Naturela -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><img src="restaurantes/logos/naturela.png" alt="Logo Naturela"></div>
+                <h3 class="nome-parceiro">Naturela</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-percent"></i> 10% de desconto</span>
+                <p class="obs-parceiro">10% de desconto mediante apresentação do crachá.</p>
+            </div>
+
+            <!-- Trilha Verde -->
+            <div class="card-parceiro">
+                <div class="logo-parceiro"><img src="restaurantes/logos/trilhaverde.png" alt="Logo Trilha Verde"></div>
+                <h3 class="nome-parceiro">Trilha Verde</h3>
+                <span class="beneficio-parceiro"><i class="fas fa-tag"></i> Até 30% de desconto</span>
+                <p class="obs-parceiro">Cardápio especial com até 30% de desconto mediante apresentação do crachá.</p>
             </div>
 
         </div>
-
-        <a href="index.html" class="btn-inscricao" style="max-width: 300px; margin-top: 40px;">
-            <i class="fas fa-arrow-left"></i> VOLTAR
-        </a>
     </main>
 
     <footer>

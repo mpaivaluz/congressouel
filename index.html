@@ -75,41 +75,12 @@
                 </iframe>
             </div> -->
 
-            <!-- CONTADOR REGRESSIVO -->
-            <div class="countdown-title">O evento começa em:</div>
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="countdown-dias">00</span>
-                    <div class="countdown-label">Dias</div>
-                </div>
-                <div class="countdown-item">
-                    <span id="countdown-horas">00</span>
-                    <div class="countdown-label">Horas</div>
-                </div>
-                <div class="countdown-item">
-                    <span id="countdown-minutos">00</span>
-                    <div class="countdown-label">Min</div>
-                </div>
-                <div class="countdown-item">
-                    <span id="countdown-segundos">00</span>
-                    <div class="countdown-label">Seg</div>
-                </div>
-            </div>
-
-            <div class="botoes-acao">
-                <a href="https://www.even3.com.br/9-congresso-odontologico-londrinense-732675/" target="_blank"
-                    class="btn-inscricao primary">
-                    <i class="fas fa-edit"></i> INSCRIÇÃO
-                </a>
-                <a href="/parceiros" class="btn-inscricao secondary">
-                    <i class="fas fa-utensils"></i> RESTAURANTES PARCEIROS
-                </a>
-                <a href="CRONOGRAMA ORAL.pdf" target="_blank" class="btn-inscricao secondary">
-                    <i class="fas fa-calendar-alt"></i> CRONOGRAMA ORAL
-                </a>
-                <a href="CRONOGRAMA PAINEL.pdf" target="_blank" class="btn-inscricao secondary">
-                    <i class="fas fa-calendar-alt"></i> CRONOGRAMA PAINEL
-                </a>
+            <!-- MENSAGEM DE ENCERRAMENTO -->
+            <div class="encerramento">
+                <i class="fas fa-heart"></i>
+                <div class="encerramento-titulo">Evento encerrado</div>
+                <p>O 9º COL chegou ao fim! Agradecemos a todos os participantes, palestrantes, parceiros e organizadores que fizeram deste congresso um sucesso.</p>
+                <p class="encerramento-ate-breve">Até a próxima edição!</p>
             </div>
         </div>
 
@@ -369,32 +340,6 @@
             document.getElementById('lightbox').style.display = 'none';
             document.body.style.overflow = 'auto'; // Restaura rolagem
         }
-
-        // Script do Contador Regressivo
-        document.addEventListener('DOMContentLoaded', () => {
-            const targetDate = new Date('2026-10-01T08:00:00').getTime();
-
-            const interval = setInterval(function () {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    clearInterval(interval);
-                    document.querySelector('.countdown-container').innerHTML = '<div style="color: var(--dourado); font-weight: bold; font-size: 1.2rem;">O evento começou!</div>';
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown-dias").innerText = days.toString().padStart(2, '0');
-                document.getElementById("countdown-horas").innerText = hours.toString().padStart(2, '0');
-                document.getElementById("countdown-minutos").innerText = minutes.toString().padStart(2, '0');
-                document.getElementById("countdown-segundos").innerText = seconds.toString().padStart(2, '0');
-            }, 1000);
-        });
     </script>
 
     <footer>
